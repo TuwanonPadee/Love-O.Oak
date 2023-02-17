@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Fredoka+One&family=Rubik+Bubbles&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Fredoka+One&family=Kanit&family=Noto+Serif+Thai&family=Rubik+Bubbles&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Fredoka+One&family=Kanit&family=Noto+Serif+Thai&family=Rubik+Bubbles&display=swap');
+
+
+.navbar-font {
+    font-family: 'Fredoka One', cursive;
+    /* color: aliceblue; */
+    font-size: 2em;
+}
+
+.navbar-collapse {
+    font-family: 'Noto Serif Thai', serif;
+    /* color: white; */
+    font-size: 1rem;
+}
+
+.blue {
+    font-family: 'Titan One', cursive;
+    margin: 0px;
+    position: absolute;
+    /* color: aliceblue; */
+    color: black;
+    font-size: 5rem;
+    letter-spacing: 3px;
+    top: 260px;
+    left: 410px;
+}
+
+.blue2 {
+    font-family: 'Fredoka One', cursive;
+    margin: 0.1px;
+    position: absolute;
+    /* color: aliceblue; */
+    color: black;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    top: 358px;
+    left: 410px;
+}
+
+
+
+/* .navbar-fontN{
+    font-family: 'Comfortaa', cursive;
+}  */
+
+.ranbow-color {
+    background-color: #c66ff8;
+    background-image: -webkit-linear-gradient(70deg, #f31667 50%, #1493e7 50%);
+}
+
+.rectecular {
+    display: block;
+    border: 0px solid #dc3545;
+    border-radius: 30px 30px 30px 30px;
+    background-color: #dc3545;
+    width: 98%;
+    height: 70%;
+    position: absolute;
+    top: 74.5px;
+    left: 0px;
+    margin: 13px;
+    background-color: #cdb4db;
+    background-image: -webkit-linear-gradient(65deg, #fa5692 25%, #4fb9ff 75%);
+}
