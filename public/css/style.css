@@ -20,7 +20,6 @@
 .shop-cai {
   font-family: "Fredoka One", cursive;
   font-weight: bold;
-  position: relative;
   top: -1rem;
 }
 
@@ -34,11 +33,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 30px 30px 30px 30px;
-  width: 98%;
-  position: relative;
-  left: 0px;
-  margin: 13px;
+  border-radius: 30px;
   background-color: #cdb4db;
   background-image: -webkit-linear-gradient(65deg, #fa5692 25%, #4fb9ff 75%);
+}
+
+.card {
+  position: static;
 }
