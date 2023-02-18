@@ -20,5 +20,6 @@ app.get("/shop/:tags", async (req, res) => {
   res.render("main", {
     checkPath: tag,
     bookProduct: response,
+    tagMock: tagConvert[tag]
   });
 });
