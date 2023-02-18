@@ -1,4 +1,5 @@
 const express = require("express");
+const Book = require("./models/book");
 const app = express();
 
 app.set("view engine", "ejs");
@@ -9,18 +10,16 @@ app.listen(3000, () => {
 });
 
 app.get("/shop/:tags", async (req, res) => {
-  await res.render("main", { checkPath: req.params.tags });
+  const tag = req.params.tags,
+    tagConvert = {
+      "romance-story": "romance novels",
+      "love-story": "love story",
+      "boylove-story": "y-boylove",
+    };
+  const response = await Book.find({ tags: tagConvert[tag] });
+  res.render("main", {
+    checkPath: tag,
+    bookProduct: response,
+    tagMock: tagConvert[tag]
+  });
 });
-
-/* 
-// const mongoose = require("mongoose");
-mongoose.set("strictQuery", true);
-mongoose.connect(
-  "mongodb+srv://tuwanon:Q4lyU7QGdtRdtLwG@cluster0.qew2hux.mongodb.net/shop?retryWrites=true&w=majority"
-);
-
-mongoose
-  .model("product", new Schema({ id: Number, tags: String }), "product")
-  .find({ tags: "romance novels" }, (err, query) => {
-    console.log(query);
-  }); */
