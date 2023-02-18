@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-gradient ranbow-color font-navbar">
+  <nav class="navbar navbar-expand-lg bg-gradient ranbow-color font-navbar position-sticky top-0 z-3">
     <div class="container-fluid">
       <a class="navbar-brand navbar-font">Novel Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -67,16 +67,47 @@
       </div>
     </div>
   </nav>
-
-  <article class="rectecular" style="min-height: <%= checkPath == 'home' ? '70%' : '30%' %>">
-    <div class="shop-title">
-      <%= checkPath=='home' ? 'NOVEL SHOP' : checkPath.replace("-", " " ).toUpperCase()%>
-    </div>
-    <span class="shop-cai <%= checkPath == 'home' ? 'visible' : 'invisible' %>">
-      おはよ! こんにちは! おやすみ ありがとうございます! また明日
-    </span>
-  </article>
-  <footer class="p-4 fixed-bottom bg-gradient ranbow-color"></footer>
+  <div class="mx-3 my-2">
+    <article class="rectecular my-3" style="padding: <%= checkPath == 'home' ? '13%' : '1%' %>">
+      <div class="shop-title">
+        <%= checkPath=='home' ? 'NOVEL SHOP' : checkPath.replace("-", " " ).toUpperCase()%>
+      </div>
+      <span class="shop-cai <%= checkPath == 'home' ? 'visible' : 'invisible' %>">
+        おはよ! こんにちは! おやすみ ありがとうございます! また明日
+      </span>
+    </article>
+    <article class="container text-center <%= checkPath != 'home' ? 'visible' : 'invisible' %>">
+      <div class="row row-cols-2 justify-content-around">
+        <% bookProduct.forEach(book=> { %>
+          <div class="card col mx-4 my-2" style="width: 15rem;">
+            <img class="card-img-top" src="../../images/<%= book.tags %>/<%= book.id %>.jpg">
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= book.name %>
+              </h5>
+              <p class="card-text">
+                <%= book.price %> บาท
+              </p>
+              <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+            </div>
+          </div>
+          <% }) %>
+            <% for( let index=4; index < 10; index++ ) { %>
+              <% tagMockConvert={'love story': '4' , 'romance novels' : '7' , 'y-boylove' : '1' } %>
+                <div class="card col mx-4 my-2" style="width: 15rem;">
+                  <img class="card-img-top"
+                    src="../../images/<%= tagMock %>/<%= tagMockConvert[tagMock] + index %>.jpg">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+                  </div>
+                </div>
+                <% } %>
+      </div>
+    </article>
+    <footer class="p-3 fixed-bottom bg-gradient ranbow-color z-3"></footer>
+  </div>
 </body>
 
 </html>
