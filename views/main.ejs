@@ -77,37 +77,41 @@
       </span>
     </article>
     <article class="container text-center <%= checkPath != 'home' ? 'visible' : 'invisible' %>">
-      <div class="row row-cols-2 justify-content-around">
+      <div class="row row-cols-3">
         <% bookProduct.forEach(book=> { %>
-          <div class="card col mx-4 my-2" style="width: 15rem;">
-            <img class="card-img-top" src="../../images/<%= book.tags %>/<%= book.id %>.jpg">
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= book.name %>
-              </h5>
-              <p class="card-text">
-                <%= book.price %> บาท
-              </p>
-              <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+          <div class="col">
+            <div class="card" style="width: 15rem;">
+              <img class="card-img-top" src="../../images/<%= book.tags %>/<%= book.id %>.jpg">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= book.name %>
+                </h5>
+                <p class="card-text">
+                  <%= book.price %> บาท
+                </p>
+                <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+              </div>
             </div>
           </div>
           <% }) %>
             <% for( let index=4; index < 10; index++ ) { %>
               <% tagMockConvert={'love story': '4' , 'romance novels' : '7' , 'y-boylove' : '1' } %>
-                <div class="card col mx-4 my-2" style="width: 15rem;">
-                  <img class="card-img-top"
-                    src="../../images/<%= tagMock %>/<%= tagMockConvert[tagMock] + index %>.jpg">
-                  <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+                <div class="col">
+                  <div class="card" style="width: 15rem;">
+                    <img class="card-img-top"
+                      src="../../images/<%= tagMock %>/<%= tagMockConvert[tagMock] + index %>.jpg">
+                    <div class="card-body">
+                      <h5 class="card-title">นิยาย</h5>
+                      <p class="card-text"> - บาท</p>
+                      <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+                    </div>
                   </div>
                 </div>
                 <% } %>
       </div>
     </article>
-    <footer class="p-3 fixed-bottom bg-gradient ranbow-color z-3"></footer>
   </div>
+  <footer class="p-3 bg-gradient ranbow-color z-3"></footer>
 </body>
 
 </html>
