@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Novel shop</title>
-  <link rel="icon" href="/images/shop/icons/ficon.ico" />
+  <link rel="icon" href="/images/icons/ficon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-gradient ranbow-color font-navbar position-sticky top-0 z-3">
+  <nav class="navbar navbar-expand-lg bg-gradient ranbow-color font-navbar position-sticky top-0">
     <div class="container-fluid">
       <a class="navbar-brand navbar-font">Novel Shop</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -68,18 +68,47 @@
     </div>
   </nav>
   <div class="mx-3 my-2">
-    <article class="rectecular my-3" style="padding: <%= checkPath == 'home' ? '13%' : '1%' %>">
-      <div class="shop-title">
+    <article class="navbar-collapse my-3 <%= checkPath == 'detail' ?  'product-detail' : 'rectecular' %>"
+      style="padding: <%= checkPath == 'home' ? '13%' : '5px' %>">
+      <div class="shop-title text-center flex-column <%= checkPath != 'detail' ? 'd-flex' : 'd-none' %>">
         <%= checkPath=='home' ? 'NOVEL SHOP' : checkPath.replace("-", " " ).toUpperCase()%>
+          <span class="shop-cai <%= checkPath == 'home' ? 'd-block' : 'd-none' %>">
+            おはよ! こんにちは! おやすみ ありがとうございます! また明日
+          </span>
       </div>
-      <span class="shop-cai <%= checkPath == 'home' ? 'visible' : 'invisible' %>">
-        おはよ! こんにちは! おやすみ ありがとうございます! また明日
-      </span>
+      <div class="d-flex justify-content-around m-5 <%= checkPath == 'detail' ? 'd-block' : 'd-none' %>">
+        <img class="mx-5 rounded" src="/images/<%= bookProduct.tags %>/<%= bookProduct.id %>.jpg"
+          style="max-width: 33em; max-height: 33em;">
+        <div class="lh-lg">
+          <h5>
+            <b>
+              <p>เรื่อง : <%= bookProduct.name %>
+              </p>
+              <p>เรื่องย่อ : <%= bookProduct.introstory %>
+              </p>
+              <p>หมวกหมู่ : <%= bookProduct.tags %>
+              </p>
+              <p>ผู้เขียน : <%= bookProduct.write %>
+              </p>
+              <p>ราคา : <%= bookProduct.price %> บาท
+              </p>
+            </b>
+          </h5>
+          <form class="d-flex flex-column align-items-center">
+            <div class="d-grid gap-5 d-md-block my-3">
+              <button class="btn btn-light me-5" type="button"> - </button>
+              1
+              <button class="btn btn-light ms-5" type="button"> + </button>
+            </div>
+            <input class="btn btn-primary" type="submit" value="สั่งซื้อ">
+          </form>
+        </div>
+      </div>
     </article>
-    <article class="container text-center <%= checkPath != 'home' ? 'visible' : 'invisible' %>">
+    <article class="container text-center <%= checkPath == 'detail' ? 'd-none' : 'd-block' %>">
       <div class="row row-cols-3">
-        <% bookProduct.forEach(book=> { %>
-          <div class="col">
+        <% bookProductList.forEach(book=> { %>
+          <div class="col my-2 align-items-center">
             <div class="card" style="width: 15rem;">
               <img class="card-img-top" src="../../images/<%= book.tags %>/<%= book.id %>.jpg">
               <div class="card-body">
@@ -89,14 +118,14 @@
                 <p class="card-text">
                   <%= book.price %> บาท
                 </p>
-                <a href="#" class="btn btn-primary">สั่งซื้อ</a>
+                <a href="/shop/<%= checkPath %>/detail/<%= book.id %>" class="btn btn-primary">สั่งซื้อ</a>
               </div>
             </div>
           </div>
           <% }) %>
             <% for( let index=4; index < 10; index++ ) { %>
               <% tagMockConvert={'love story': '4' , 'romance novels' : '7' , 'y-boylove' : '1' } %>
-                <div class="col">
+                <div class="col <%= checkPath != 'home' ? 'd-block' : 'd-none' %>">
                   <div class="card" style="width: 15rem;">
                     <img class="card-img-top"
                       src="../../images/<%= tagMock %>/<%= tagMockConvert[tagMock] + index %>.jpg">
@@ -111,7 +140,9 @@
       </div>
     </article>
   </div>
-  <footer class="p-3 bg-gradient ranbow-color z-3"></footer>
+  <footer
+    class="p-3 bg-gradient ranbow-color <%= checkPath == 'home' | checkPath ==  'detail' ? 'invisible' : 'visible' %>">
+  </footer>
 </body>
 
 </html>
