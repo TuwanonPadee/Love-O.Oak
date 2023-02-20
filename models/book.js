@@ -12,6 +12,14 @@ mongoose
 
 module.exports = mongoose.model(
   "product",
-  new Schema({ id: Number, name: String, tags: String, price: Number }),
+  new Schema({
+    id: Number,
+    name: String,
+    tags: String,
+    price: Number,
+    introstory: String,
+    write: String,
+    review: Number,
+  }),
   "product"
 );
