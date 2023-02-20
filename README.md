@@ -16,7 +16,7 @@ Novel Shop Project
 
 โทนสีที่ใช้ เลือกใช้เป็นสีเรนโบเเรงบันดาลใจมาจากความชอบล้วนๆ🤣🤣🤣
 
-[Novel shopping website by express.js with mongoDB](https://youtu.be/Jhg3b1TPxJ4)
+[![Novel shopping website by express.js with mongoDB](https://i.ytimg.com/vi/Jhg3b1TPxJ4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCVD1KQv2fBpuQQwUPXK5qaF_xZGg)](https://youtu.be/Jhg3b1TPxJ4)
 
 สมาชิกกลุ่ม
 1. 6352300120    นางสาวสิริอาภา แก้ววิชิต
